@@ -15,20 +15,20 @@ export default class Footer extends Component {
             <div class="container">
                 <nav class="footer-nav">
                     <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact</a></li>
                     </ul>
                 </nav>
                 <nav class="footer-nav">
                     <ul>
                         <li>
-                            <a href="#" class="social-link">
+                            <a href="/" class="social-link">
                             <img src={twitter}/>
                             Twitter
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="social-link">
+                            <a href="/" class="social-link">
                             <img src={facebook}/>
                             Facebook
                             </a>
