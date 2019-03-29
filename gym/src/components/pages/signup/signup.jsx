@@ -8,6 +8,8 @@ export default class signin extends Component {
   constructor(){
     super();
     this.state = {
+      "txtName":"",
+      "txtLastname":"",
       "txtEmail":"",
       "txtPswd":""
     }
@@ -19,23 +21,42 @@ export default class signin extends Component {
         <Header title="Registrate"/>
         <Body>
           <Input
-              inputLabel="Correo Electrónico"
-              inputName="txtEmail"
-              inputType="email"
-              inputPlaceholder="Correo Electróncio"
-              inputValue={this.state.txtEmail}
-              inputErrorMsg=""
-              inputChangeHandler={this.onChangeHandler}
-            />
-            <Input
-              inputLabel="Contraseña"
-              inputName="txtPswd"
-              inputType="password"
-              inputPlaceholder="Contraseña"
-              inputValue={this.state.txtPswd}
-              inputErrorMsg=""
-              inputChangeHandler={this.onChangeHandler}
-            />
+            inputLabel="Nombre"
+            inputName="txtName"
+            inputType="text"
+            inputPlaceholder="Nombre"
+            inputValue={this.state.txtName}
+            inputErrorMsg=""
+            inputChangeHandler={this.onChangeHandler}
+          />
+          <Input
+            inputLabel="Apellido"
+            inputName="txtLastname"
+            inputType="text"
+            inputPlaceholder="Apellido"
+            inputValue={this.state.txtLastname}
+            inputErrorMsg=""
+            inputChangeHandler={this.onChangeHandler}
+          />
+          <Input
+            inputLabel="Correo Electrónico"
+            inputName="txtEmail"
+            inputType="email"
+            inputPlaceholder="Correo Electróncio"
+            inputValue={this.state.txtEmail}
+            inputErrorMsg=""
+            inputChangeHandler={this.onChangeHandler}
+          />
+          <Input
+            inputLabel="Contraseña"
+            inputName="txtPswd"
+            inputType="password"
+            inputPlaceholder="Contraseña"
+            inputValue={this.state.txtPswd}
+            inputErrorMsg=""
+            inputChangeHandler={this.onChangeHandler}
+          />
+            
         </Body>
       </div>
     );
