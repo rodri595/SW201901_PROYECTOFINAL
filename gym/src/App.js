@@ -14,23 +14,34 @@ import Footer from './components/generic/footer/Footer';
 //Pages
 import Login from './components/pages/login/Login';
 import Signup from './components/pages/signup/signup';
+import Home from './components/pages/home/Home';
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
+      <div>
 
       <Navbar/>
-      <Login />
-      <Signup />
+
+
+
+      <Home/>
+
+
+
       <Footer/>
 
-      
       </div>
     );
   }
 }
 
 export default App;
+
+
+// <Navbar/>
+// <Home/>
+// <Login />
+// <Signup />
+// <Footer/>

@@ -9,7 +9,7 @@ import logo from './images/logo.png';
 export default class navbar extends Component {
   render() {
     return (
-        <div>
+        <div id="navbar">
             <body>
                 <nav className="navbar">
                     <div className="brand-title"><a href="/"><img src={logo} alt='logo del gym'/></a></div>

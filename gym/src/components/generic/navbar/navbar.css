@@ -1,8 +1,6 @@
-* {
-    box-sizing: border-box;
-    
+#navbar{
+    z-index: 99999;
 }
-
 body {
     margin: 0;
     padding: 0;
