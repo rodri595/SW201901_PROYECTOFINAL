@@ -18,6 +18,12 @@ function initUsers(db){
             }
         );
   }); // getAllThings
+
+
+
+
+
+  
   
   return router;
 }// fin initUsers
