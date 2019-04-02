@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Route, BrowserRouter} from 'react-router-dom';
+
 
 //css
 import './App.css';
@@ -20,19 +22,22 @@ import Home from './components/pages/home/Home';
 class App extends Component {
   render() {
     return (
-      <div>
+      <BrowserRouter>
+        <div>
 
-      <Navbar/>
-
-
-
-      <Home/>
+        <Navbar/>
 
 
+        <Route exact path="/" component={Home} />
+        <Route path="/Login" component={Login} />
+        <Route path="/Signup" component={Signup} />
 
-      <Footer/>
 
-      </div>
+
+        <Footer/>
+
+        </div>
+      </BrowserRouter>
     );
   }
 }

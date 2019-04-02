@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 //css
 import './navbar.css';
@@ -6,26 +7,27 @@ import './navbar.css';
 //images
 import logo from './images/logo.png';
 
+
 export default class navbar extends Component {
   render() {
     return (
         <div id="navbar">
             <body>
                 <nav className="navbar">
-                    <div className="brand-title"><a href="/"><img src={logo} alt='logo del gym'/></a></div>
-                        <a href="/" className="toggle-button">
+                    <div className="brand-title"><img src={logo} alt='logo del gym'/></div>
+                        <div className="toggle-button">
                             <span className="bar"></span>
                             <span className="bar"></span>
                             <span className="bar"></span>
-                        </a>
+                        </div>
                         <div className="navbar-links">
                             <ul>
-                                <li><a href="/">Inicio</a></li>
-                                <li><a href="/">Horarios</a></li>
-                                <li><a href="/">Nosotros</a></li>
-                                <li><a href="/">Contactanos</a></li>
-                                <li><a href="/">Login</a></li>
-                                <li><a href="/">Registrar</a></li>
+                                <li><Link to="/">Inicio</Link></li>
+                                <li><Link to="/">Horarios</Link></li>
+                                <li><Link to="/">Nosotros</Link></li>
+                                <li><Link to="/">Contactanos</Link></li>
+                                <li><Link to="/Login">Login</Link></li>
+                                <li><Link to="/Signup">Registrar</Link></li>
                             </ul>
                         </div>
                 </nav>

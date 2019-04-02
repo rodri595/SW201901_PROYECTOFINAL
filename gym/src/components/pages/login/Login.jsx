@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 //generic
 import Header from '../../generic/header/Header';
@@ -13,6 +14,7 @@ export default class Login extends Component {
       "txtPswd":""
     }
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
   render() {
     return (
@@ -37,6 +39,12 @@ export default class Login extends Component {
               inputErrorMsg=""
               inputChangeHandler={this.onChangeHandler}
             />
+            <Input
+              inputType="submit"
+              inputValue="Entrar"
+              inputErrorMsg=""
+              inputChangeHandler={this.onClickHandler}
+            />
         </Body>
       </div>
     );
@@ -44,5 +52,18 @@ export default class Login extends Component {
   onChangeHandler(e){
     const {name, value} = e.currentTarget; //ES5 desctructor de objectos ||destructuring
     this.setState({...this.state, [name]:value});
+  }
+  onClickHandler(e){
+    e.preventDefault();
+    e.stopPropagation();
+    axios.post(
+      'api/user/login',
+      {...this.state}
+    ).then( (resp)=>{
+      alert(resp);
+    }).catch( (err) => {
+      alert(err);
+    });
+
   }
 }
