@@ -13,8 +13,8 @@ export default class Login extends Component {
       "txtEmail":"",
       "txtPswd":""
     }
-    this.onChangeHandler = this.onChangeHandler.bind(this);
-    this.onClickHandler = this.onClickHandler.bind(this);
+    // this.onChangeHandler = this.onChangeHandler.bind(this);
+    // this.onClickHandler = this.onClickHandler.bind(this);
   }
   render() {
     return (
@@ -49,21 +49,21 @@ export default class Login extends Component {
       </div>
     );
   }
-  onChangeHandler(e){
-    const {name, value} = e.currentTarget; //ES5 desctructor de objectos ||destructuring
-    this.setState({...this.state, [name]:value});
-  }
-  onClickHandler(e){
-    e.preventDefault();
-    e.stopPropagation();
-    axios.post(
-      'api/user/login',
-      {...this.state}
-    ).then( (resp)=>{
-      alert(resp);
-    }).catch( (err) => {
-      alert(err);
-    });
+  // onChangeHandler(e){
+  //   const {name, value} = e.currentTarget; //ES5 desctructor de objectos ||destructuring
+  //   this.setState({...this.state, [name]:value});
+  // }
+  // onClickHandler(e){
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   axios.post(
+  //     'api/users',
+  //     {...this.state}
+  //   ).then( (resp)=>{
+  //     alert(resp);
+  //   }).catch( (err) => {
+  //     alert(err);
+  //   });
 
-  }
+  // }
 }

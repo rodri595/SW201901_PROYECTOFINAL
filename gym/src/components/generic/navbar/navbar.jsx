@@ -25,7 +25,7 @@ export default class navbar extends Component {
                                 <li><Link to="/">Inicio</Link></li>
                                 <li><Link to="/">Horarios</Link></li>
                                 <li><Link to="/">Nosotros</Link></li>
-                                <li><Link to="/">Contactanos</Link></li>
+                                <li><Link to="/Blog">Blog</Link></li>
                                 <li><Link to="/Login">Login</Link></li>
                                 <li><Link to="/Signup">Registrar</Link></li>
                             </ul>

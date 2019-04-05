@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 function initUsers(db){
-    var mongoModel = require('../../models/mongomodel')(db);
+    var mongoModel = require('../../models/usermodel')(db);
 
     router.get('/', function( req, res, next) {
         mongoModel.getAll(

@@ -17,6 +17,10 @@ import Footer from './components/generic/footer/Footer';
 import Login from './components/pages/login/Login';
 import Signup from './components/pages/signup/signup';
 import Home from './components/pages/home/Home';
+import List from './components/pages/list/list';
+import Blogpost from './components/pages/blogpost/blogpost';
+import Addblog from './components/pages/addblog/Addblog';
+
 
 
 class App extends Component {
@@ -29,8 +33,12 @@ class App extends Component {
 
 
         <Route exact path="/" component={Home} />
+        <Route path="/blog" component={List} />
         <Route path="/Login" component={Login} />
         <Route path="/Signup" component={Signup} />
+        <Route path="/Blogpost/:blogId" component={Blogpost} />
+        <Route path="/Addblog" component={Addblog} />
+
 
 
 
@@ -44,9 +52,3 @@ class App extends Component {
 
 export default App;
 
-
-// <Navbar/>
-// <Home/>
-// <Login />
-// <Signup />
-// <Footer/>
