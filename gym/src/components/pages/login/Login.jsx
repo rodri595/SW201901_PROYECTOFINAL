@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 //generic
 import Header from '../../generic/header/Header';
@@ -13,10 +14,13 @@ export default class Login extends Component {
       "txtEmail":"",
       "txtPswd":""
     }
-    // this.onChangeHandler = this.onChangeHandler.bind(this);
-    // this.onClickHandler = this.onClickHandler.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
   render() {
+    if (this.state.redirecto && true){
+      return (<Redirect to={this.props.location.state.from.pathname} />);
+    }
     return (
       <div>
         <Header title="Login"/>
@@ -39,31 +43,35 @@ export default class Login extends Component {
               inputErrorMsg=""
               inputChangeHandler={this.onChangeHandler}
             />
-            <Input
-              inputType="submit"
-              inputValue="Entrar"
-              inputErrorMsg=""
-              inputChangeHandler={this.onClickHandler}
-            />
+            <button onClick={this.onClickHandler}>Login</button>
         </Body>
       </div>
     );
   }
-  // onChangeHandler(e){
-  //   const {name, value} = e.currentTarget; //ES5 desctructor de objectos ||destructuring
-  //   this.setState({...this.state, [name]:value});
-  // }
-  // onClickHandler(e){
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   axios.post(
-  //     'api/users',
-  //     {...this.state}
-  //   ).then( (resp)=>{
-  //     alert(resp);
-  //   }).catch( (err) => {
-  //     alert(err);
-  //   });
+  onChangeHandler(e){
+    const {name, value} = e.currentTarget; //ES5 desctructor de objectos ||destructuring
+    this.setState({...this.state, [name]:value});
+  }
+  onClickHandler(e){
+    e.preventDefault();
+    e.stopPropagation();
 
-  // }
+    axios.post(
+      '/api/users/login',
+      {"email": this.state.txtEmail, "password": this.state.txtPswd}
+    ).then( (resp)=>{
+      if(resp.data.msg === "ok"){
+        this.props.auth.setAuthState(
+          {
+            "isAuthenticated": true,
+            "user": this.state.txtEmail,
+            "firstVerified": true
+          }
+        );
+        this.setState({"redirecto": true});
+      }
+    }).catch( (err) => {
+      alert(err);
+    } );
+  }
 }
