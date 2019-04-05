@@ -11,6 +11,8 @@ import './App.css';
 // Generics
 import Navbar from './components/generic/navbar/navbar';
 import Footer from './components/generic/footer/Footer';
+import PrivateRoute from './components/generic/privateroute/PrivateRoute'
+
 
 
 //Pages
@@ -23,7 +25,20 @@ import Addblog from './components/pages/addblog/Addblog';
 
 
 
+
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      isAuthenticated : false,
+      user: null,
+      firsVerified: false
+    }
+    this.setAuthState = this.setAuthState.bind(this);
+  }
+  setAuthState(authProps){
+    this.setState(authProps);
+  }
   render() {
     return (
       <BrowserRouter>
@@ -34,10 +49,10 @@ class App extends Component {
 
         <Route exact path="/" component={Home} />
         <Route path="/blog" component={List} />
-        <Route path="/Login" component={Login} />
+        <Route path="/Login"render={(p)=>(<Login {...p} auth={{...this.state, setAuthState:this.setAuthState}}/>)}  />
         <Route path="/Signup" component={Signup} />
         <Route path="/Blogpost/:blogId" component={Blogpost} />
-        <Route path="/Addblog" component={Addblog} />
+        <PrivateRoute path="/Addblog" component={Addblog} auth={this.state} />
 
 
 
