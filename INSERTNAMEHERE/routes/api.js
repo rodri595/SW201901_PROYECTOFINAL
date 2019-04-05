@@ -14,7 +14,7 @@ function apiInit(db){
         }
       }
     
-    router.use('/users', verificarLogin, usersApi);
+    router.use('/users', usersApi);
     router.use('/blog', verificarLogin, blogApi);
 
     return router;
