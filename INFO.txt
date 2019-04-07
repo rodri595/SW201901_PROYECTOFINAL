@@ -1,0 +1,99 @@
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+///////////////////                         //////////////////
+//////////////////          before encrypt //////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+
+
+
+///////////////////////rodrigo////////////////////////////
+      "_id" : ObjectId("5ca78605e826ca038fc7d9cd"),
+        "name" : "rodrigo",
+        "lastname" : "erazo",
+        "email" : "rodri.595@hotmail.com",
+        "user" : "rodri595",
+        "password" : "baleadas"
+
+
+
+
+
+
+///////////////////////eduardo ////////////////////////////
+        "_id" : ObjectId("5ca94ec884b64816ac557b76"),
+        "name" : "eduardo",
+        "lastname" : "castro",
+        "email" : "eduardo@gmail.com",
+        "user" : "siguaman",
+        "password" : "123456",
+        "datecreate" : ISODate("2019-04-07T01:13:44.163Z")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////
+///////////////////                         //////////////////
+//////////////////          after encrypt  //////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////gery////////////////////////////
+
+
+        "_id" : ObjectId("5caa402462bced23fc44941d"),
+        "name" : "gery",
+        "lastname" : "izaguirre",
+        "email" : "gery@gmail.com",
+        "user" : "allahu akbar",
+        "password" : "$2a$10$./aLa1UtTTChPnMYsAVZn.2lZD5BjzZpuxZSrpEHQ5g900/WDRB5S",
+
+
+        bomba69
+
+
+
+"datecreate" : ISODate("2019-04-07T18:23:31.878Z")
+
+
+
+
+
+
+
+
+
+///////////////////////andy////////////////////////////
+
+        "_id" : ObjectId("5caa44465309a51e04423d1c"),
+"name" : "andy",
+"lastname" : "mejia",
+"email" : "andy@gmail.com",
+"user" : "andy",
+"password" : "$2a$10$7mDnuwHRRTHuSLm43L.cz.GH6YPWoTCmuSraa7ff/FVPKhH4dQbRS",
+
+qwerty
+
+
+
+
+"datecreate" : ISODate("2019-04-07T18:41:10.430Z"

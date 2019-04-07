@@ -12,6 +12,7 @@ import './App.css';
 import Navbar from './components/generic/navbar/navbar';
 import Footer from './components/generic/footer/Footer';
 import PrivateRoute from './components/generic/privateroute/PrivateRoute'
+import logout from './components/generic/logout/logout';
 
 
 
@@ -48,9 +49,10 @@ class App extends Component {
 
 
         <Route exact path="/" component={Home} />
+        <Route path="/" component={logout} />
         <Route path="/blog" component={List} />
         <Route path="/Login"render={(p)=>(<Login {...p} auth={{...this.state, setAuthState:this.setAuthState}}/>)}  />
-        <Route path="/Signup" component={Signup} />
+        <Route path="/Signup" component={Signup}  />
         <Route path="/Blogpost/:blogId" component={Blogpost} />
         <PrivateRoute path="/Addblog" component={Addblog} auth={this.state} />
 

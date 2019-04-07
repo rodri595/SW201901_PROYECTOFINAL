@@ -14,7 +14,7 @@ export default class navbar extends Component {
         <div id="navbar">
             <body>
                 <nav className="navbar">
-                    <div className="brand-title"><img src={logo} alt='logo del gym'/></div>
+                    <div className="brand-title"><Link to="/"><img src={logo} alt='logo del gym'/></Link></div>
                         <div className="toggle-button">
                             <span className="bar"></span>
                             <span className="bar"></span>

@@ -30,16 +30,17 @@ class list extends Component {
     this.setState({isLoading:true});
     axios.get('/api/blog')
       .then( (resp)=>{
-        this.setState({blog:resp.data, isLoading:false})
-      }).catch( (err) => {
+        this.setState({blog:resp.data, isLoading:false});
+      })
+      .catch( (err) => {
         alert(err);
       });
   }
 
   render() {
-    let ListItem = [];
+    let ListItems = [];
     if(this.state.blog.length > 0 ){
-      ListItem = this.state.blog.map((o, i)=>{
+      ListItems = this.state.blog.map((o, i)=>{
         return (<ListItem {...o} />);
       });
     }
@@ -49,9 +50,13 @@ class list extends Component {
           Blog testing only {this.state.blog.length}
         </h2>
         <br/>
-        <div>{ListItem}</div>
+        <div>{ListItems}</div>
         { (this.state.isLoading)? "...cargando": null}
 
+        <br/>
+        <br/>
+        <br/>
+        <Link to="/Addblog">Crear Post Nuevo</Link>
       </div>
     )
   }

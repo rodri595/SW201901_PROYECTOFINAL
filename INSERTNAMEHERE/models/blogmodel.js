@@ -50,15 +50,6 @@ function mongomodel(db){
       }); // deleteOne
     } // deleteById
 
-    lib.getBlogByautor = (userId, handler)=>{
-      tableblog.findOne({ "user": new ObjectId(blogId)}, (err, doc)=>{
-          if(err){
-            handler(err, null);
-          }else{
-            handler(null, doc);
-          }
-        }); // findOne
-    } // getBlogById
 
     lib.getBlogByautor = (user, handler)=>{
       var query= {"user": {"$in": Array.isArray(user)? user: [user]}};

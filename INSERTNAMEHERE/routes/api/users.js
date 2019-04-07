@@ -4,8 +4,18 @@ var router = express.Router();
 
 function initUsers(db){
     var mongoModel = require('../../models/usermodel')(db);
+    var validateRegisterInput = require('../../validator/validator');
+    var validateLoginInput = require("../../validator/login");
+    var newusertp = {
+      "name" : "",
+      "lastname" : "",
+      "email" : "",
+      "user" : "",
+      "password" : "",
+      "datecreate":""
+    };
 
-    router.get('/', function( req, res, next) {
+    router.get('/all', function( req, res, next) {
         mongoModel.getAll(
             function(err, docs){
                 if(err) {
@@ -19,34 +29,78 @@ function initUsers(db){
         );
   }); // getAllThings
 
-router.post('/login', function(req, res, next){
-    var _userData = req.body;
-    if(req.body.email === "rodri.595@hotmail.com"
-        && req.body.password ==="baleadas") {
-            req.session.logged = true;
-            req.session.loggeduser = req.body.email;
-            res.status(200).json({"msg":"ok"});
-        } else {
-            res.status(403).json({"error":"Credenciales no válidas"});
-        }
-});// post login
 
-router.get('/logout', function (req, res, next) {
+
+  
+  router.get('/logout', function (req, res, next) {
     var _userData = req.body;
     req.session.logged=false;
     req.session.loggeduser = null;
     res.json({ "msg": "ok" });
-});// post login
-
-router.get('/session', function (req, res, next) {
-  res.json({ "active": req.session.logged && true});
-});// post login
-
-
-
-
-
+  });// post login
   
+  router.get('/session', function (req, res, next) {
+    res.json({ "active": req.session.logged && true});
+  });// post login
+  
+  
+    /////////////////////////////login no encrypt
+  // router.post('/login', function(req, res, next){
+  //     if(req.body.email === "rodri.595@hotmail.com"
+  //         && req.body.password ==="baleadas") {
+  //             req.session.logged = true;
+  //             req.session.loggeduser = req.body.email;
+  //             res.status(200).json({"msg":"ok"});
+  //           } else {
+  //             res.status(403).json({"error":"Credenciales no válidas"});
+  //           }
+  //         });// post login
+
+/////////////////////////////login encrypt////////////////////////////////////////////////////
+
+router.post("/login", (req, res) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  mongoModel.login(req.body, (err)=>{
+    if(err){
+      console.log(err);
+      return res.status(500).json({"error":"No se puede crear usuario"});
+    }
+
+    return res.status(200).json({"msg":"ok"});
+
+  });
+
+
+
+});
+
+// PARA SABER LA PASSWORD PUEDE BUSCAR EN .../INFO.txt o crear user nuevo lol
+
+
+//////////////////////////////////////////////////////////////////sign up with encrypt funciona-ish
+  router.post('/new', function(req, res, next){
+      const { errors, isValid } = validateRegisterInput(req.body);
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+    var _userData = Object.assign({} , newusertp, req.body);
+    var dateT = new Date();
+    dateT.getDate();
+    _userData.datecreate = dateT;
+    mongoModel.addNewUser(_userData, (err, newUser)=>{
+      if(err){
+        console.log(err);
+        return res.status(500).json({"error":"No se puede crear usuario"});
+      }
+      return res.status(200).json(newUser);
+    });
+  });// nuevo user
+
+//no da el redirect despues de crear usuario por medio de react , sera que se debe aplicar el ridirect en el backend?
   
   return router;
 }// fin initUsers
