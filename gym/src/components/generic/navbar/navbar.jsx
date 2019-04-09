@@ -23,7 +23,7 @@ export default class navbar extends Component {
                         <div className="navbar-links">
                             <ul>
                                 <li><Link to="/">Inicio</Link></li>
-                                <li><Link to="/">Horarios</Link></li>
+                                <li><Link to="/Horarios">Horarios</Link></li>
                                 <li><Link to="/">Nosotros</Link></li>
                                 <li><Link to="/Blog">Blog</Link></li>
                                 <li><Link to="/Login">Login</Link></li>

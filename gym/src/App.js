@@ -20,6 +20,7 @@ import logout from './components/generic/logout/logout';
 import Login from './components/pages/login/Login';
 import Signup from './components/pages/signup/signup';
 import Home from './components/pages/home/Home';
+import horarios from './components/pages/horarios/horarios';
 import List from './components/pages/list/list';
 import Blogpost from './components/pages/blogpost/blogpost';
 import Addblog from './components/pages/addblog/Addblog';
@@ -51,6 +52,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route path="/" component={logout} />
         <Route path="/blog" component={List} />
+        <Route path="/Horarios" component={horarios} />
         <Route path="/Login"render={(p)=>(<Login {...p} auth={{...this.state, setAuthState:this.setAuthState}}/>)}  />
         <Route path="/Signup" component={Signup}  />
         <Route path="/Blogpost/:blogId" component={Blogpost} />

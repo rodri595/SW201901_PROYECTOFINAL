@@ -2,7 +2,10 @@
 #home{
     background-color: black;
 }
-
+img {
+    max-width:100%;
+    height:auto;
+}
 .banner{
 
     max-width:100%;
@@ -25,22 +28,80 @@
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
-    background-color: yellow;
+    background-color: black;
 
 }
 
 .item{
     width: 400px;
     margin: 10px;
-    border: 3px solid red;
-    background-color: blue;
+    border: 3px solid white;
+    background-color: rgb(white, white, black);
     height: 500px;
+    color: white;
 }
 
 
 .flex-container .item h1{
     font-size: 2.5em;
     align-items: center;
+    color: white;
     
 }
 
+header{
+    color: white;
+}
+p{
+    color: white;
+}
+
+/*                         */
+.wrapper {
+    padding: 6rem 0 4rem 0 ;
+    position: relative;
+    margin: 0;
+    background-color: black;
+}
+
+
+.wrapper > .inner {
+    margin: 0 auto;
+    width: 80rem;
+    background-color: black;
+}
+
+
+.wrapper.style2 {
+   
+
+    background-color: black;
+}
+
+
+.grid-style {
+    width: 100%;
+    margin: 0 0 2.5rem 0;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -moz-align-items: stretch;
+    -webkit-align-items: stretch;
+    -ms-align-items: stretch;
+    align-items: stretch;
+}
+
+.box {
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.box .image.fit {
+    margin: 0;
+    border-radius: 0;
+}

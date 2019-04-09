@@ -9,10 +9,11 @@
     color: inherit;
     text-decoration: none;
     padding: 1rem;
+    color: white;
 }
 
 .footer-nav a:hover  {
-    color:white;
+    color:gray;
   }
   
 .main-footer {

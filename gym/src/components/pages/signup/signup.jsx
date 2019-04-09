@@ -19,7 +19,6 @@ export default class signin extends Component {
     this.onClickHandler = this.onClickHandler.bind(this);
   }
   render() {
-    let finish = null;
 
     return (
       <div>
