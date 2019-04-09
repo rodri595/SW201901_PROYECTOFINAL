@@ -105,7 +105,9 @@ lib.addNewUser = (newUser)=>{
 
 // }
 
+
 lib.login = (info, handler)=>{
+  console.log("error por aqui aqui 2");
   tableuser.find({  $and: [{"email": info.email},{"password": info.password}]}).toArray(
     (err, doc)=>{
       if(err){

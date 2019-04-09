@@ -5,14 +5,38 @@ import {Link} from 'react-router-dom';
 //CSS
 import './list.css';
 
+//images
+
+import img1 from './images/img1.jpg'
+
 
 
 function ListItem(props){
   return(
+    
+  <div classname="flex-container3">
+
     <div key={props._id}>
-      <b>
-      <Link to={`/Blogpost/${props._id}`}>{props.Title}</Link>
-      </b>
+    <div className="item3">
+        <div className="img-container3">
+        <img src={img1} alt='extra del gym'/>
+        </div>
+        <b>
+          TITLE : <Link to={`/Blogpost/${props._id}`}>{props.Title}</Link>
+        </b>
+        <p>
+          -POST-<br/> 
+          {props.Post}
+        </p>
+        <h4>
+          Creado por : <br/> 
+          {props.user}
+        </h4>
+        <button><Link to={`/Blogpost/${props._id}`}>Leer Mas</Link></button>
+      </div>
+    </div>
+ 
+
     </div>
   );
 }
@@ -50,7 +74,9 @@ class list extends Component {
           Blog testing only {this.state.blog.length}
         </h2>
         <br/>
+        <div classname="felx-container item">
         <div>{ListItems}</div>
+        </div>
         { (this.state.isLoading)? "...cargando": null}
 
         <br/>

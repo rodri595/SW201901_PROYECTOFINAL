@@ -8,6 +8,13 @@ import {Link} from 'react-router-dom';
 import Body from '../../generic/body/Body';
 import Input from '../../generic/input/Input';
 
+//css
+import '../home/home-style.css';
+
+import img1 from '../list/images/img5.jpg';
+
+
+
 
 export default class Addblog extends Component {
     constructor(){
@@ -17,6 +24,8 @@ export default class Addblog extends Component {
           txtTitleError:"",
           txtPost:"",
           txtPostError:"",
+          txtUser:"",
+          txtUserError:"",
           redirectTo:"",
           error:""
         }
@@ -39,6 +48,7 @@ export default class Addblog extends Component {
           {
             Title:this.state.txtTitle,
             Post:this.state.txtPost,
+            user:this.state.txtUser,
           }
         ).then(
           (resp)=>{
@@ -60,12 +70,15 @@ export default class Addblog extends Component {
         )
       }
     return (
-      <div>
+      <div classname="flex-container">
+      <div classname="item">
+        <img classname="img-container1" src={img1} alt='extra del gym'/>
           <h1>creando tu nuevo Blogpost</h1>
+          <button><Link to="/Blog">Regresar</Link></button>
         <Body>
           <Input
               inputLabel        ="Titulo de Blog"
-              inputName         ="txtTtile"
+              inputName         ="txtTitle"
               inputType         ="text"
               inputPlaceholder  ="Titulo para tu blogpost"
               inputValue        ={this.state.txtTitle||null}
@@ -83,12 +96,22 @@ export default class Addblog extends Component {
             inputChangeHandler={this.onChangeHandler}
             inputBlurHandler={this.onBlurHandler}
           />
+          <Input
+            inputLabel        ="autor"
+            inputName         ="txtUser"
+            inputType         ="text"
+            inputPlaceholder  ="Autor para tu blogpost"
+            inputValue        ={this.state.txtUser||null}
+            inputErrorMsg     ={this.state.txtUserError||null}
+            inputChangeHandler={this.onChangeHandler}
+            inputBlurHandler  ={this.onBlurHandler}
+          />
           <button onClick={this.onClickHandler}>Agregar</button>
           <div>
             {this.state.error}
           </div>
         </Body>
-        
+        </div>
       </div>
     );
   }

@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 //CSS
 import './blogpost-style.css';
 
+import img1 from '../list/images/img2.jpg'
+
 
 
 export default class blogpost extends Component {
@@ -28,18 +30,50 @@ export default class blogpost extends Component {
       })
   }
   render() {
-    let blogId=this.props.match.params.itemid;
+    
     let itemBody = null;
 
 
     if(this.state.blogPost){
-      let {Title, Post, user} = this.state.blogPost;
+      let {_id, Title, Post, user} = this.state.blogPost;
       itemBody = (
-        <div>
-          <h1>{blogId}</h1>
-          <b>{Title}</b><br />
-          <b>{Post}</b><br />
-          <b>{user}</b><br />
+        <div className="flex-container2">
+        <div className="item2">
+
+          <div classname="cod-container">
+          codigo de post:<br/>
+            <h5>{_id}</h5>
+          </div>
+
+
+          <div classname="img-container2">
+            <img src={img1} alt='extra del gym'/>
+          </div>
+
+          <div classname="title-container">
+              Titulo:
+            <b>
+              {Title}
+            </b>
+            <br /><br />
+          </div>
+
+          
+          <div classname="post-container">
+            <b>
+              {Post}
+            </b>
+              <br />
+            <b>
+            <br /><br />
+              creador por : 
+              <br />
+              "{user}"
+            </b>
+            
+            <br />
+          </div>
+          </div>
         </div>
       );
     }
@@ -51,7 +85,8 @@ export default class blogpost extends Component {
             <br/>
             <br/>
             <br/>
-            <br/>
+
+      <button><Link to="/Blog">Regresar</Link></button>
             <br/>
         <h1>
             {itemBody}
@@ -59,7 +94,6 @@ export default class blogpost extends Component {
       
 
 
-      <button><Link to="/Blog">Regresar</Link></button>
         </div>
     );
   }

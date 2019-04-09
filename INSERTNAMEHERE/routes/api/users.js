@@ -44,7 +44,7 @@ function initUsers(db){
   });// post login
   
   
-    ///////////////////////////login no encrypt
+    /////////////////////////login no encrypt
   router.post('/login', function(req, res, next){
       if(req.body.email === "rodri.595@hotmail.com"
           && req.body.password ==="baleadas") {
@@ -108,27 +108,24 @@ function initUsers(db){
 
 // });
 
+  // router.post('/login', function(req, res, next){
+  //   mongoModel.login(req.body, (err, Doc)=>{
+  //         if(err){
+  //           console.log(err);
+  //           return res.status(500).json({"error":"Error al iniciar sesion"});
+  //         }else 
+  //         if(req.body.email === Doc.email
+  //         && req.body.password ===Doc.password) {
+  //             req.session.logged = true;
+  //             req.session.loggeduser = req.body.email;
+  //             res.status(200).json({"msg":"ok"});
+  //           } else {
+  //             res.status(403).json({"error":"Credenciales no válidas"});
+  //           }
+  //         });
+  //       });
 
-// router.get('/login', function (req, res, next){
-//   console.log({"msg":"ok333"});
-//   mongoModel.login(req.body, (err, Doc)=>{
-//     if(err){
-//       console.log(err);
-//       console.log("error por aqui aqui 2");
-//       return res.status(500).json({"error":"Error al iniciar sesion"});
-//     }else{
-//       if(req.body.email === Doc.email && req.body.password === Doc.password) {
-//         req.session.logged = true;
-//         req.session.loggeduser = req.body.email;
-//         res.status(200).json({"msg":"ok"});
-//         console.log("error por aqui aqui 3");
-//       } else {
-//         res.status(403).json({"error":"Credenciales no válidas"});
-//         }
-//   } });
-// }); 
 
-// PARA SABER LA PASSWORD PUEDE BUSCAR EN .../INFO.txt o crear user nuevo lol
 
 
 

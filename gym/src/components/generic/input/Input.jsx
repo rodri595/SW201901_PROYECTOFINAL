@@ -8,8 +8,8 @@ export default class Input extends Component {
         }
         return (
             <fieldset>
-                <label>{this.props.inputLabel || ''}</label>
-                    <input
+                <label style={{Color: 'white'}}>{this.props.inputLabel || ''}</label>
+                    <input style={{backgroundColor: 'blue'}}
                         type={this.props.inputType || 'text'}
                         name={this.props.inputName || 'input' + Math.round(Math.random() * 100) }
                         placeholder={this.props.inputPlaceholder || ''}

@@ -5,6 +5,11 @@ import Header from '../../generic/header/Header';
 import Body from '../../generic/body/Body';
 import Input from '../../generic/input/Input';
 
+import '../home/home-style.css';
+
+import img1 from '../list/images/img6.jpg';
+
+
 export default class signin extends Component {
   constructor(){
     super();
@@ -21,7 +26,8 @@ export default class signin extends Component {
   render() {
 
     return (
-      <div>
+      <div style={{backgroundColor: 'black'}}>
+      <img src={img1} alt='extra del gym'/>
         <Header title="Registrate"/>
         <Body>
           <Input
@@ -99,11 +105,10 @@ export default class signin extends Component {
           }
         );
         this.setState({"redirecto": true});
-        this.props.history.push("/");
-
       }
     }).catch( (err) => {
       alert(err);
     } );
+    this.props.history.push("/");
   }
 }

@@ -5,6 +5,7 @@ var router = express.Router();
 function initBlog(db){
     var mongoModel = require('../../models/blogmodel')(db);
 
+
     var blogposttp = {
         'Title':'',
         'Post':'',
@@ -37,6 +38,7 @@ function initBlog(db){
       }); // byid:blogid
 
       router.post('/new', function(req, res, next){
+
         var _blogData = Object.assign({} , blogposttp, req.body);
         mongoModel.addNewBlogpost(_blogData, (err, newBlogpost)=>{
           if(err){

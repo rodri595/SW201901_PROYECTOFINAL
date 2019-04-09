@@ -5,9 +5,9 @@ import React, { Component } from 'react'
 import './home-style.css';
 
 //images
-import banner from './images/banner.jpg'
-import img1 from './images/img1.jpg'
-import img2 from './images/img2.jpg'
+import banner from './images/banner.jpg';
+import img1 from './images/img1.jpg';
+import img2 from './images/img2.jpg';
 
 
 

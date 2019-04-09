@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
+
+//CSS
+import './login-style.css';
+
+//images
+import img1 from './images/img1.jpg';
+
 //generic
 import Header from '../../generic/header/Header';
 import Body from '../../generic/body/Body';
@@ -22,10 +29,12 @@ export default class Login extends Component {
       return (<Redirect to={this.props.location.state.from.pathname} />);
     }
     return (
-      <div>
+      <div classname="flex-container5">
+      <img src={img1} alt='extra del gym'/>
         <Header title="Login"/>
         <Body>
-          <Input
+        <div classname="item5">
+          <Input 
               inputLabel="Correo Electrónico"
               inputName="txtEmail"
               inputType="email"
@@ -44,8 +53,10 @@ export default class Login extends Component {
               inputChangeHandler={this.onChangeHandler}
             />
             <button onClick={this.onClickHandler}>Login</button>
+      </div>
         </Body>
       </div>
+
     );
   }
   onChangeHandler(e){
